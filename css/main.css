@@ -13,9 +13,35 @@ nav{
     color:white;background-opacity:0.5;
 }
 
+
+.topnav a.active {
+  background-color: #45ADA8;
+  color: white;
+}
+
 .logo{width:50%; height:100px;}
 
+
 .logo h1{line-height: 100px; padding-left: 50px;color: black;font-size: 48px;}
+
+
+.step2,.step4{
+  background-color:  #E5FCC2;
+  width: 80%;
+  font-size: 30px;
+  margin-left: 20%;
+}
+.step1,.step3,.step5{
+  background-color: #E5FCC2;
+  width: 80%;
+  font-size: 30px;
+  margin-right: 0.2%;
+}
+
+li:hover{
+  background-color: #45ADA8;
+  transform: scale(1.2);
+  text-align: center;
 
 .menu{width: 50%; height:100px;}
 
@@ -30,6 +56,7 @@ section{ display: flex;}
 
 .left{width: 45%; height:auto; 
 overflow:hidden; margin-top: 20px;
+
 }
 
 .left img{width:600px;
@@ -61,6 +88,26 @@ text-align: center; margin-top: 80px; padding: 40px;
     padding:20px 35px;
 }
 
+@keyframes example {
+  0%   {background-color: #E5FCC2;}
+  33%  {background-color: #9DE0AD;}
+  66%  {background-color: #45ADA8;}
+  100%   {background-color: #547980;}
+}
+h1 {
+  margin: 10px;
+  padding: 40px;
+  height: 200px;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  text-align: center;
+  font-size: 70px;
+  font-weight: 700;
+
+
 .right button:hover{
     background: linear-gradient(57deg, #1e4d92,#00c6a7);
+
 }
