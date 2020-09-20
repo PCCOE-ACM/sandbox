@@ -2,8 +2,35 @@
 <html>
     <head>
         <title>Virtual Sandbox</title>
-        <link rel="stylesheet" href="main2.css">
+        <link rel="stylesheet" href="main.css">
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <script id="result" type="text/x-handlebars-template">
+            <span style="float: left; margin: 20px;">
+                <a style="text-decoration: none; color: black;" target="_blank" href="{{link}}">
+                    <img src="{{avatar}}" width="120" height="120" style="border-radius: 50%;">
+                </a>
+                <br>
+                <a style="text-decoration: none; color: black;" target="_blank" href="{{link}}"><p style="text-align: center; font-family: 'Roboto', serif;">{{uname}}</p></a>
+                <p style="text-align: center; font-family: 'Roboto', serif;">Total Commits: </p>
+                <p style="text-align: center; font-family: 'Roboto', serif;">{{contributions}}</p>
+            </span>
+        </script>
+        <script type="text/javascript">
+            const template = Handlebars.compile(document.querySelector('#result').innerHTML);
+            document.addEventListener("DOMContentLoaded", ()=>{
+                fetch("http://api.github.com/repos/PCCOE-ACM/sandbox/stats/contributors").then(response => response.json()).then(data=>{
+                    console.log(data);
+                    var count = data.length;
+                    for(var i = count-1; i>=0; i--){
+                        const content = template({'link': data[i]['author']['html_url'], 'avatar': data[i]['author']['avatar_url'], 'uname': data[i]['author']['login'], 'contributions': data[i]['total']});
+                        document.querySelector('#contributors').innerHTML += content;
+                    }
+                });
+            })
+        </script>
     </head>
+
 <body>
     <header class="pgheader">
         <nav>
@@ -30,5 +57,7 @@
             </div>
         </section>
     </header>
-</body>    
+    <div id="contributors" style="margin: 40px;">
+    </div>
+</body>
 </html>
