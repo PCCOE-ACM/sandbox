@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 91f255402d6fc941a2adf79ead516b1455f4b077
 <html>
     <head>
         <title>Virtual Sandbox</title>
         <link rel="stylesheet" href="main.css">
+<<<<<<< HEAD
     </head>
 <body>
     <header class="pgheader">
@@ -42,6 +46,41 @@
                 <img src="https://cdn.pixabay.com/photo/2016/08/10/14/07/sandbox-1583289_960_720.jpg" class="d-block w-100" alt="..." style="position: absolute; max-height: 720px; top: 0;left: 0;">
 
 >>>>>>> f7dccc6c49e94e26c53184ee3a74c9f73f935b3f
+=======
+        <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <script id="result" type="text/x-handlebars-template">
+            <span style="float: left; margin: 20px;">
+                <a style="text-decoration: none; color: black;" target="_blank" href="{{link}}">
+                    <img src="{{avatar}}" width="120" height="120" style="border-radius: 50%;">
+                </a>
+                <br>
+                <a style="text-decoration: none; color: black;" target="_blank" href="{{link}}"><p style="text-align: center; font-family: 'Roboto', serif;">{{uname}}</p></a>
+                <p style="text-align: center; font-family: 'Roboto', serif;">Total Commits: </p>
+                <p style="text-align: center; font-family: 'Roboto', serif;">{{contributions}}</p>
+            </span>
+        </script>
+        <script type="text/javascript">
+            const template = Handlebars.compile(document.querySelector('#result').innerHTML);
+            document.addEventListener("DOMContentLoaded", ()=>{
+                fetch("http://api.github.com/repos/PCCOE-ACM/sandbox/stats/contributors").then(response => response.json()).then(data=>{
+                    console.log(data);
+                    var count = data.length;
+                    for(var i = count-1; i>=0; i--){
+                        const content = template({'link': data[i]['author']['html_url'], 'avatar': data[i]['author']['avatar_url'], 'uname': data[i]['author']['login'], 'contributions': data[i]['total']});
+                        document.querySelector('#contributors').innerHTML += content;
+                    }
+                });
+            })
+        </script>
+    </head>
+
+<body>
+    <header class="pgheader">
+        <nav>
+            <div class="logo">
+                <h1>Developers Sandbox</h1>
+>>>>>>> 91f255402d6fc941a2adf79ead516b1455f4b077
             </div>
             <div class="menu">
                 <ul>
@@ -51,55 +90,19 @@
                     <li>News</li>
                 </ul>
             </div>
-          <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-          </div>
-      </div>
-
-      <ul>
-        <h2>This image works a link:</h2><br>
-        <a href="https://hacktoberfest.digitalocean.com/">
-          <img src="hacktoberfest.jpeg" width="900" height="400">
-        </a>
-
-        <div class="steps">
-          <div class="step1"><li>Step 1: Fork the repo</li></div>
-          <br>
-          <div class="step2"><li>Step2: Make sure you have git installed on your local machine</li></div>
-          <br>
-          <div class="step3"><li>Step3: Clone the repo</li></div>
-          <br>
-          <div class="step4"><li>step4: Commit and push the changes</li></div>
-          <br>
-          <div class="step5"><li>Step5: Participate in Hacktoberfest and win exciting goodies</li></div>
-          <br>
-        </div>
-      </ul>
-
-      <div class="doubt" > 
-          <a name ="doubt"></a>
-          <p>  DOUBT? </p>
-          <input type="text" name="search" placeholder="search">
-      </div>      
-
-      <footer  style="width:100%;background-color:#b39f92;color:black;">      
-
-          <h2 style="text-align:center;padding-top: 30px;padding-bottom:15px;">Ready to Make your Sandbox?</h2>
-          <p style="text-align:center;padding: 15px;">
-              <mark><a href="https://i.pinimg.com/originals/c0/55/c4/c055c4f0523a544f71aa9843cf7d02d4.jpg">FIND YOUR MOTIVATION HERE</a></mark> 
-              <h5 style="text-align:center;">GOOD LUCK!!</h3>
-          </p>
-      </footer>
-      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-      <script type="text/javascript" src="./js/main.js"></script>
-  </body>
-
+        </nav>
+        <section>
+            <div class="left">
+                <img src="assets/trial10.jpg">
+            </div>
+            <div class="right">
+                <h1>Welcome to the Developers Sandbox</h1>
+                <p>This is a place where you can try and test your front-end code snippets.</p>
+                <button>Welcome</button>
+            </div>
+        </section>
+    </header>
+    <div id="contributors" style="margin: 40px;">
+    </div>
+</body>
 </html>
