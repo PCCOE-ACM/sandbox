@@ -1,52 +1,7 @@
-<!DOCTYPE html>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 91f255402d6fc941a2adf79ead516b1455f4b077
 <html>
     <head>
         <title>Virtual Sandbox</title>
-        <link rel="stylesheet" href="main.css">
-<<<<<<< HEAD
-    </head>
-<body>
-    <header class="pgheader">
-        <nav>
-            <div class="logo">
-                <h1>Developers Sandbox</h1>
-=======
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="./css/main.css">
-    <title>Sandbox - PCCoE ACM</title>
-  </head>
-  <style>
-    img {
-      opacity: 0.8;
-    }
-    
-    img:hover {
-      opacity: 1.0;
-    }
-    </style>
-  <body>
-      <div class="topnav">
-        <a class="active" href="#home">Home</a>
-        <a href="https://pccoe.acm.org/" target="_blank">Website</a>
-        <a href="https://github.com/PCCOE-ACM" target="_blank">Github Page</a>
-        <a  href="#doubt">Something in your Mind?</a>
-      </div>
-      <h1 id="demo"></h1>
-      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active" style="height: 720px">
-                <img src="https://cdn.pixabay.com/photo/2016/08/10/14/07/sandbox-1583289_960_720.jpg" class="d-block w-100" alt="..." style="position: absolute; max-height: 720px; top: 0;left: 0;">
-
->>>>>>> f7dccc6c49e94e26c53184ee3a74c9f73f935b3f
-=======
+        <link rel="stylesheet" href="css/main.css">
         <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
         <script id="result" type="text/x-handlebars-template">
@@ -63,7 +18,7 @@
         <script type="text/javascript">
             const template = Handlebars.compile(document.querySelector('#result').innerHTML);
             document.addEventListener("DOMContentLoaded", ()=>{
-                fetch("http://api.github.com/repos/PCCOE-ACM/sandbox/stats/contributors").then(response => response.json()).then(data=>{
+                fetch("https://api.github.com/repos/PCCOE-ACM/sandbox/stats/contributors").then(response => response.json()).then(data=>{
                     console.log(data);
                     var count = data.length;
                     for(var i = count-1; i>=0; i--){
@@ -74,13 +29,11 @@
             })
         </script>
     </head>
-
 <body>
     <header class="pgheader">
         <nav>
             <div class="logo">
                 <h1>Developers Sandbox</h1>
->>>>>>> 91f255402d6fc941a2adf79ead516b1455f4b077
             </div>
             <div class="menu">
                 <ul>
